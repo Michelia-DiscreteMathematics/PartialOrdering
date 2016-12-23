@@ -1,7 +1,5 @@
 # PartialOrdering
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
 离散数学上机实验3：偏序关系中盖住关系的求取及格论中有补格的判定
 
 ## 实验目的：
@@ -26,3 +24,6 @@
 ![](lcm.png)
 
 4. 关于如何获取两个数的最大公约数，请参考欧几里得算法
+
+## 12月23日更新：
+* 修复了单个素数与1构成的格不被判断为有补格的问题

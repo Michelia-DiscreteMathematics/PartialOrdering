@@ -68,26 +68,27 @@ int Poset::euclid(int a,int b){ //辗转相除法
 	return b;
 }
 
-int Poset::get_lcm(int a,int b){	//两数之积除以最大公约数即是最小公倍数
+int Poset::get_lcm(int a,int b,int g){	//两数之积除以最大公约数即是最小公倍数
 	int gcd;
 	if(a<b){
 		gcd=a;
 		a=b;
 		b=gcd;
 	}
-	gcd=euclid(a,b);
+	gcd=g;
 	return a*b/gcd;
 }
 
 void Poset::get_complement(){
-	bool complement=false;
-	for(int i=1;i<factor.size()-1;++i){
-		complement=false;
-		for (int j=1;j<factor.size()-1;++j){
-			if (get_lcm(factor[i], factor[j])==integer) complement=true;
-		}
-		if (!complement) break;
-	}
-	if (complement) cout<<"It\'s a complemented lattice!"<<endl;
-	else cout<<"It\'s not a complemented lattice!"<<endl;
+    bool complement=false;
+    for(int i=0;i<factor.size();++i){
+        complement=false;
+        for (int j=0;j<factor.size();++j){
+        	int gcd = euclid(factor[i],factor[j]);
+            if (gcd==1&&get_lcm(factor[i],factor[j],gcd)==integer) complement=true;
+        }
+        if (!complement) break;
+    }
+    if (complement) cout<<"It\'s a complemented lattice!"<<endl;
+    else cout<<"It\'s not a complemented lattice!"<<endl;
 }

@@ -19,7 +19,7 @@ public:
     void print_factor();
     void print_cover();
     int euclid(int a,int b);
-    int get_lcm(int a,int b);
+    int get_lcm(int a,int b,int g);
     void get_complement();
 };
 
